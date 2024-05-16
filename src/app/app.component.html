@@ -1,11 +1,12 @@
 <main>
   <h1>Accesibilidad</h1>
-  <div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
     <app-si-no-buttons-group
-      [(value)]="answer"
+      formControlName="answer"
       label="¿Te gustaria aprender Angular?"
     ></app-si-no-buttons-group>
-  </div>
+    <button class="btn">Enviar</button>
+  </form>
 
-  <p>{{ answer }}</p>
+  <p>{{ this.form.get("answer")?.value }}</p>
 </main>

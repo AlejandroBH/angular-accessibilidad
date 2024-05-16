@@ -1,11 +1,26 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  forwardRef,
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-si-no-buttons-group',
   templateUrl: './si-no-buttons-group.component.html',
   styleUrls: ['./si-no-buttons-group.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => SiNoButtonsGroupComponent),
+    },
+  ],
 })
-export class SiNoButtonsGroupComponent implements OnInit {
+export class SiNoButtonsGroupComponent implements OnInit, ControlValueAccessor {
   @Input() value = '';
   @Input() label = '';
 
@@ -13,14 +28,29 @@ export class SiNoButtonsGroupComponent implements OnInit {
 
   options = SiNoButtonGroupOptions;
 
+  onChange = (value: string): void => {};
+  onTouch = () => {};
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  activate(value: string): void {
-    console.log(value);
+  writeValue(value: string): void {
     this.value = value;
+    this.onChange(value);
     this.valueChange.emit(this.value);
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouch = fn;
+  }
+
+  activate(value: string): void {
+    this.writeValue(value);
   }
 }
 

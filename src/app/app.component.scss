@@ -5,3 +5,13 @@ main {
   justify-content: center;
   flex-direction: column;
 }
+
+.btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+}
