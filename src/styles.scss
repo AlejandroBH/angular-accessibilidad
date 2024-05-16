@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #4cc9f0;
+  --color-text: #fff;
+  --background-color: #121212;
+  --focus-color: #f72585;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-text);
+  background-color: var(--background-color);
+}
+
+:focus {
+  outline: 1px solid var(--focus-color);
+}

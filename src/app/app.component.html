@@ -1,1 +1,11 @@
-<h1>VERCEL TEST</h1>
+<main>
+  <h1>Accesibilidad</h1>
+  <div>
+    <app-si-no-buttons-group
+      [(value)]="answer"
+      label="¿Te gustaria aprender Angular?"
+    ></app-si-no-buttons-group>
+  </div>
+
+  <p>{{ answer }}</p>
+</main>
