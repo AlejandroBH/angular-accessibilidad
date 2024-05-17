@@ -12,11 +12,17 @@ export class AppComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      answer: ['si'],
+      answer: [
+        {
+          value: 'si',
+          disabled: false,
+        },
+      ],
     });
   }
 
   submit(): void {
+    this.form.get('answer')?.disable();
     console.log(this.form.value);
   }
 }

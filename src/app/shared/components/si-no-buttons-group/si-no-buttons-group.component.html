@@ -15,6 +15,7 @@
     (click)="activate(options.SI)"
     appKeyboardManagerItem
     (focused)="activate(options.SI)"
+    [attr.disabled]="disabled ? disabled : null"
   >
     Si
   </button>
@@ -28,6 +29,7 @@
     (click)="activate(options.NO)"
     appKeyboardManagerItem
     (focused)="activate(options.NO)"
+    [attr.disabled]="disabled ? disabled : null"
   >
     No
   </button>

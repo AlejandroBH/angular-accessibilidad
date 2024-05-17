@@ -2,6 +2,7 @@
   <h1>Accesibilidad</h1>
   <form [formGroup]="form" (ngSubmit)="submit()">
     <app-si-no-buttons-group
+      [appDisableControl]="false"
       formControlName="answer"
       label="¿Te gustaria aprender Angular?"
     ></app-si-no-buttons-group>
