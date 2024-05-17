@@ -1,3 +1,4 @@
+import { UniqueIdService } from './../../service/unique-id.service';
 import {
   Component,
   EventEmitter,
@@ -27,11 +28,16 @@ export class SiNoButtonsGroupComponent implements OnInit, ControlValueAccessor {
   @Output() valueChange = new EventEmitter<string>();
 
   options = SiNoButtonGroupOptions;
+  id = '';
 
   onChange = (value: string): void => {};
   onTouch = () => {};
 
-  constructor() {}
+  constructor(private uniqueIdService: UniqueIdService) {
+    this.id = this.uniqueIdService.generateUniqueIdWithPrefix(
+      'si-no-buttons-group'
+    );
+  }
 
   ngOnInit(): void {}
 
